@@ -79,7 +79,7 @@
     <location>/errorPage/500.html</location>
   </error-page>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>/views/index.html</welcome-file>
   </welcome-file-list>
   <distributable/>
 </web-app>
