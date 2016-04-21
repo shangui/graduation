@@ -1,4 +1,4 @@
-package onesun.dao.impl;
+package onesun.dao;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository("baseDao")
-public class BaseDaoImpl {
+public class BaseDao {
 
 	private SessionFactory sessionFactory;
 
