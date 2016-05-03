@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="onesun.model.Hra" table="hra" >
+        <id name="name" type="string">
+            <column name="name" />
+        </id>
+        <property name="sbp" type="java.lang.Integer">
+            <column name="sbp" length="2"/>
+        </property>
+        <property name="dbp" type="java.lang.Integer">
+            <column name="dbp"/>
+        </property>
+         <property name="chole" type="double">
+            <column name="chole"/>
+        </property>
+        <property name="dm" type="java.lang.Integer">
+            <column name="dm" length="2" />
+        </property>
+        <property name="sport" type="java.lang.Integer">
+            <column name="sport"/>
+        </property>
+        <property name="family" type="java.lang.Integer">
+            <column name="family"/>
+        </property>
+        <property name="smoke" type="java.lang.Integer">
+            <column name="smoke"/>
+        </property>
+        <property name="weight" type="java.lang.Integer">
+            <column name="weight"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -17,24 +17,29 @@ public class AuthInterceptor implements HandlerInterceptor {
 			.getLogger(AuthInterceptor.class);
 
 	/**
-	 * 在controller后拦截
-	 */
-	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object object, Exception exception)
-			throws Exception {
-
-	}
-
-	public void postHandle(HttpServletRequest request,
-			HttpServletResponse response, Object object,
-			ModelAndView modelAndView) throws Exception {
-	}
-
-	/**
 	 * 在controller前拦截
 	 */
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object object) throws Exception {
+		// String reqUrl = RequestUtil.getRequestPath(request);
+		// if (reqUrl.contains("/userCtr.do?login")) {
 		return true;
+		// }
+		// if ((boolean) request.getSession().getAttribute("ifLogin")) {
+		// return true;
+		// }
+		// response.sendError(577, "未登录或登录超时");
+		// return false;
+	}
+
+	@Override
+	public void afterCompletion(HttpServletRequest arg0,
+			HttpServletResponse arg1, Object arg2, Exception arg3)
+			throws Exception {
+	}
+
+	@Override
+	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
+			Object arg2, ModelAndView arg3) throws Exception {
 	}
 }

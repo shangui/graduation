@@ -9,34 +9,23 @@ package onesun.model;
  */
 public class Answer {
 
-	private boolean success = false;
+	private boolean result = false;
 	private String msg = "";
 	private Object obj = null;
 
-	public Answer() {
-		super();
-	}
-
-	public Answer(boolean success, String msg, Object obj) {
-		super();
-		this.success = success;
-		this.msg = msg;
-		this.obj = obj;
+	/**
+	 * @return the result
+	 */
+	public boolean getResult() {
+		return result;
 	}
 
 	/**
-	 * @return the success
+	 * @param result
+	 *            the result to set
 	 */
-	public boolean isSuccess() {
-		return success;
-	}
-
-	/**
-	 * @param success
-	 *            the success to set
-	 */
-	public void setSuccess(boolean success) {
-		this.success = success;
+	public void setResult(boolean result) {
+		this.result = result;
 	}
 
 	/**
@@ -68,5 +57,4 @@ public class Answer {
 	public void setObj(Object obj) {
 		this.obj = obj;
 	}
-
 }

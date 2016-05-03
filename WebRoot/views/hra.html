@@ -1,0 +1,80 @@
+<h1 class="text-center">Health Risk Factors Appraisal</h1>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="sbp" class="col-sm-2 control-label">收缩压(sbp)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="sbp" placeholder="mmHg">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="dbp" class="col-sm-2 control-label">舒张压(dbp)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="dbp" placeholder="mmHg">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="chole" class="col-sm-2 control-label">舒张压(dbp)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="chole" placeholder="mg/dl">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="dm" class="col-sm-2 control-label">糖尿病史</label>
+        <select class="col-sm-10" id="dm">
+            <option>有</option>
+            <option>无</option>
+            <option>有，但已控制</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sport" class="col-sm-2 control-label">运动情况</label>
+        <select class="col-sm-10" id="sport">
+            <option>坐着工作和娱乐</option>
+            <option>极少活动</option>
+            <option>适当活动</option>
+            <option>经常活动</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="family" class="col-sm-2 control-label">家庭史</label>
+        <select class="col-sm-10" id="family">
+            <option>父母亲70岁前死于心脏病</option>
+            <option>父母二人之一70岁已前死于心脏病</option>
+            <option>无心脏病家庭史</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="smoke" class="col-sm-2 control-label">吸烟</label>
+        <select class="col-sm-10" id="smoke">
+            <option>40支以上</option>
+            <option>20-39支</option>
+            <option>10-19支</option>
+            <option>1-9支</option>
+            <option>无</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="weight" class="col-sm-2 control-label">吸烟</label>
+        <select class="col-sm-10" id="weight">
+            <option>超重60%</option>
+            <option>超重40%</option>
+            <option>超重20%</option>
+            <option>正常</option>
+            <option>低体重</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> 记住我
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" id="harSub">评估</button>
+        </div>
+    </div>
+</form>

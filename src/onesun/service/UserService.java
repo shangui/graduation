@@ -3,6 +3,8 @@
  */
 package onesun.service;
 
+import onesun.model.Answer;
+import onesun.model.Hra;
 import onesun.model.User;
 
 import org.apache.log4j.Logger;
@@ -19,12 +21,24 @@ public class UserService extends BaseService {
 
 	private static final Logger logger = Logger.getLogger(UserService.class);
 
-	public User login(User user_p) {
-		logger.debug("------" + user_p.getName());
+	public Answer login(User user_p) {
 		String hql = "from User u where u.name=? and u.password=?";
-		User user = null;
-		user = (User) super.getBaseDao().get(hql, user_p.getName(),
+		logger.info("用户姓名：------" + user_p.getName());
+		logger.info("用户密码：------" + user_p.getPassword());
+		User user = (User) super.getBaseDao().get(hql, user_p.getName(),
 				user_p.getPassword());
-		return user;
+		Answer answer = new Answer();
+		if (user == null) {
+			answer.setMsg("用户名或密码错误");
+			answer.setResult(false);
+			return answer;
+		}
+		answer.setMsg("登录成功");
+		answer.setResult(true);
+		return answer;
+	}
+
+	public Answer hra(Hra hra) {
+		return null;
 	}
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Management</title>
+    <link href="lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/my.css" rel="stylesheet">
+</head>
+<body class="home" data-spy="affix" data-offset-top="30" ng-app="myApp">
+<nav class="navbar navbar-static">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/status">Health Management</a>
+        </div>
+        <div id="navbar">
+            <ul class="nav navbar-nav navbar-left hidden-xs">
+                <li><a class="smooth-scroll" href="#/hra">HRA</a></li>
+                <li><a class="smooth-scroll" href="#/dsra">DSRA</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">More <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="smooth-scroll" href="#/status">About</a></li>
+                        <li><a class="smooth-scroll" href="#">FAQ</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="http://bjtu.edu.cn/">School</a></li>
+                        <li><a href="http://user.qzone.qq.com/1169716088">Contact Me</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/login">Login</a></li>
+                <li>
+                    <a href="#/signup" class="button smooth scroll hidden-xs">Create an account</a>
+                    <a href="#/signup" class="button visible-xs">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="overlay background" id="header">
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+</header>
+
+<script src="lib/angularjs/angular-1.5.0.min.js"></script>
+<script src="lib/angularjs/angular-route.min.js"></script>
+<script src="lib/jquery-1.12.3.min.js"></script>
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

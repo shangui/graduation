@@ -3,10 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="onesun.model.User" table="User" >
+    <class name="onesun.model.User" table="user" >
         <id name="name" type="string">
-            <column name="naem" />
-            <generator class="uuid"></generator>
+            <column name="name" />
         </id>
         <property name="password" type="string">
             <column name="password" length="32" not-null="true" />

@@ -3,10 +3,11 @@
  */
 package onesun.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import onesun.model.Answer;
+import onesun.model.Hra;
+import onesun.model.User;
 import onesun.service.UserService;
 
 import org.apache.log4j.Logger;
@@ -41,7 +42,16 @@ public class UserCtr {
 
 	@RequestMapping(params = "login")
 	@ResponseBody
-	public Answer menuPrivileges(HttpServletRequest request, HttpSession session) {
-		return null;
+	public Answer login(User user, HttpSession session) {
+		Answer answer = userService.login(user);
+		// session.setAttribute("ifLogin", answer.getResult());
+		return answer;
+	}
+
+	@RequestMapping(params = "hra")
+	@ResponseBody
+	public Answer hra(Hra hra) {
+		Answer answer = userService.hra(hra);
+		return answer;
 	}
 }
