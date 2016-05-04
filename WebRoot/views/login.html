@@ -1,14 +1,22 @@
-<div class="myform">
-    <form>
-        <h1 class="text-center">登录</h1>
-        <input type="text" ng-model="user.name" class="form-control" placeholder="用户名" required autofocus>
-        <input type="password" ng-model="user.password" class="form-control" placeholder="密码" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> 记住我
-            </label>
+<div class="login">
+    <h1 class="text-center">登录</h1>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <input type="text" ng-model="user.name" class="form-control" placeholder="用户名" required autofocus>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login()">登录</button>
+        <div class="form-group">
+            <input type="password" ng-model="user.password" class="form-control" placeholder="密码" required>
+        </div>
+        <div class="form-group-sm">
+            <div class="checkbox col-sm-offset-7">
+                <label>
+                    <input type="checkbox"> 记住我
+                </label>
+            </div>
+        </div>
+        <div class="form-group-sm">
+            <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="login()">登录</button>
+        </div>
     </form>
 </div>
 

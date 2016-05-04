@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import onesun.model.Answer;
 import onesun.model.Hra;
+import onesun.model.SessionInfo;
 import onesun.model.User;
 import onesun.service.UserService;
 
@@ -42,16 +43,40 @@ public class UserCtr {
 
 	@RequestMapping(params = "login")
 	@ResponseBody
-	public Answer login(User user, HttpSession session) {
-		Answer answer = userService.login(user);
-		// session.setAttribute("ifLogin", answer.getResult());
+	public Answer login(User user_p, HttpSession session) {
+		User user = userService.login(user_p);
+		Answer answer = new Answer();
+		SessionInfo sessionInfo = new SessionInfo();
+		if (user == null) {
+			answer.setMsg("用户名或密码错误");
+			answer.setResult(false);
+			sessionInfo.setIfLogin(false);
+			return answer;
+		}
+		answer.setMsg("登录成功");
+		answer.setResult(true);
+		sessionInfo.setIfLogin(true);
+		sessionInfo.setUserName(user.getName());
+		session.setAttribute("sessionInfo", sessionInfo);
+		return answer;
+	}
+
+	@RequestMapping(params = "hraPage")
+	@ResponseBody
+	public Answer hraPage() {
+		Answer answer = new Answer();
+		answer.setResult(true);
 		return answer;
 	}
 
 	@RequestMapping(params = "hra")
 	@ResponseBody
-	public Answer hra(Hra hra) {
-		Answer answer = userService.hra(hra);
+	public Answer hra(Hra hra, HttpSession session) {
+		hra.setName(((SessionInfo) session.getAttribute("sessionInfo"))
+				.getUserName());
+		userService.hra(hra);
+		Answer answer = new Answer();
+		answer.setResult(true);
 		return answer;
 	}
 }

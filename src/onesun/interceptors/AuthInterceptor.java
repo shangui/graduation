@@ -3,6 +3,9 @@ package onesun.interceptors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import onesun.model.SessionInfo;
+import onesun.util.RequestUtil;
+
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,15 +24,17 @@ public class AuthInterceptor implements HandlerInterceptor {
 	 */
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object object) throws Exception {
-		// String reqUrl = RequestUtil.getRequestPath(request);
-		// if (reqUrl.contains("/userCtr.do?login")) {
-		return true;
-		// }
-		// if ((boolean) request.getSession().getAttribute("ifLogin")) {
-		// return true;
-		// }
-		// response.sendError(577, "未登录或登录超时");
-		// return false;
+		String reqUrl = RequestUtil.getRequestPath(request);
+		if (reqUrl.contains("/userCtr.do?login")) {
+			return true;
+		}
+		SessionInfo sessionInfo = (SessionInfo) request.getSession()
+				.getAttribute("sessionInfo");
+		if (sessionInfo != null && sessionInfo.getIfLogin()) {
+			return true;
+		}
+		response.sendError(577, "未登录或登录超时");
+		return false;
 	}
 
 	@Override
