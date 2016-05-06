@@ -29,6 +29,13 @@ public class UserService extends BaseService {
 		return user;
 	}
 
+	public Hra hraPage(String Name) {
+		String hql = "from Hra h where h.name=?";
+		logger.info("用户名：------" + Name);
+		Hra hra = (Hra) super.getBaseDao().get(hql, Name);
+		return hra;
+	}
+
 	public void hra(Hra hra) {
 		super.getBaseDao().saveOrUpdate(hra);
 	}

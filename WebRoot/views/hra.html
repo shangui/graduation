@@ -2,85 +2,109 @@
     <h1 class="text-center">Health Risk Factors Appraisal</h1>
     <form class="form-horizontal">
         <div class="form-group">
+            <label class="col-sm-3 control-label">选择疾病</label>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="hra.type">
+                    <option ng-repeat="x in types" value="{{x.value}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-hide="hra.type == '3'">
             <label class="col-sm-3 control-label">收缩压(sbp)</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="hra.sbp" placeholder="mmHg" required>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-hide="hra.type == '3'">
             <label class="col-sm-3 control-label">舒张压(dbp)</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="hra.dbp" placeholder="mmHg" required>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-hide="hra.type == '3'">
             <label class="col-sm-3 control-label">胆固醇</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" ng-model="hra.chole" placeholder="mg/dl" required>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-hide="hra.type == '3'">
             <label class="col-sm-3 control-label">糖尿病史</label>
             <div class="col-sm-3">
-                <select class="form-control" ng-model="hra.dm" required>
-                    <option value="1">有</option>
-                    <option value="2">无</option>
-                    <option value="3">有，但已控制</option>
+                <select class="form-control" ng-model="hra.dm">
+                    <option ng-repeat="x in dms" value="{{x.value}}">{{x.name}}</option>
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show="hra.type == '1'">
             <label class="col-sm-3 control-label">运动情况</label>
             <div class="col-sm-3">
-                <select class="form-control" ng-model="hra.sport" required>
-                    <option value="1">坐着工作和娱乐</option>
-                    <option value="2">极少活动</option>
-                    <option value="3">适当活动</option>
-                    <option value="4">经常活动</option>
+                <select class="form-control" ng-model="hra.sport">
+                    <option ng-repeat="x in sportsTo1" value="{{x.value}}">{{x.name}}</option>
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show="hra.type == '2'">
+            <label class="col-sm-3 control-label">运动情况</label>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="hra.sport">
+                    <option ng-repeat="x in sportsTo2" value="{{x.value}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="hra.type == '1'">
             <label class="col-sm-3 control-label">家庭史</label>
             <div class="col-sm-3">
-                <select class="form-control" ng-model="hra.family" required>
-                    <option value="1">父母亲70岁前死于心脏病</option>
-                    <option value="2">父母二人之一70岁已前死于心脏病</option>
-                    <option value="3">无心脏病家庭史</option>
+                <select class="form-control" ng-model="hra.family">
+                    <option ng-repeat="x in familysTo1" value="{{x.value}}">{{x.name}}</option>
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show="hra.type == '2'">
+            <label class="col-sm-3 control-label">家庭史</label>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="hra.family">
+                    <option ng-repeat="x in familysTo2" value="{{x.value}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="hra.type == '1'">
             <label class="col-sm-3 control-label">吸烟</label>
             <div class="col-sm-3">
-                <select class="form-control" ng-model="hra.smoke" required>
-                    <option value="1">40支以上</option>
-                    <option value="2">20-39支</option>
-                    <option value="3">10-19支</option>
-                    <option value="4">1-9支</option>
-                    <option value="5">无</option>
+                <select class="form-control" ng-model="hra.smoke">
+                    <option ng-repeat="x in smokesTo1" value="{{x.value}}">{{x.name}}</option>
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show="hra.type == '2' || hra.type == '3'">
+            <label class="col-sm-3 control-label">吸烟（每天）</label>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="hra.smoke">
+                    <option ng-repeat="x in smokesTo2" value="{{x.value}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="hra.type == '4'">
+            <label class="col-sm-3 control-label">吸烟</label>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="hra.smoke">
+                    <option ng-repeat="x in smokesTo3" value="{{x.value}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="hra.type == '1'">
             <label class="col-sm-3 control-label">体重</label>
             <div class="col-sm-3">
-                <select class="form-control" ng-model="hra.weight" required>
-                    <option value="1">超重60%</option>
-                    <option value="2">超重40%</option>
-                    <option value="3">超重20%</option>
-                    <option value="4">正常</option>
-                    <option value="5">低体重</option>
+                <select class="form-control" ng-model="hra.weight">
+                    <option ng-repeat="x in weightsTo1" value="{{x.value}}">{{x.name}}</option>
                 </select>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-3">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> 记住我
-                    </label>
-                </div>
+        <div class="form-group" ng-show="hra.type == '2'">
+            <label class="col-sm-3 control-label">体重</label>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="hra.weight">
+                    <option ng-repeat="x in weightsTo2" value="{{x.value}}">{{x.name}}</option>
+                </select>
             </div>
         </div>
         <div class="form-group">
@@ -107,7 +131,12 @@
                 </h4>
             </div>
             <div class="modal-body">
-                在这里添加一些文本
+                <div class="h4">
+                    所评估疾病的死亡风险为：{{illResult}}
+                </div>
+                <div class="panel-body">
+                    ——死亡风险的值即为患此种病存在的死亡率是当地处于此年龄段男子患此种病的平均死亡率的倍数
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default"

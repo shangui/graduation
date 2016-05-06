@@ -17,6 +17,7 @@ public class Hra {
 	private Integer family;
 	private Integer smoke;
 	private Integer weight;
+	private Integer type;
 
 	/**
 	 * @return the name
@@ -151,5 +152,20 @@ public class Hra {
 	 */
 	public void setWeight(Integer weight) {
 		this.weight = weight;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public Integer getType() {
+		return type;
+	}
+
+	/**
+	 * @param type
+	 *            the type to set
+	 */
+	public void setType(Integer type) {
+		this.type = type;
 	}
 }

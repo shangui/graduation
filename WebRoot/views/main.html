@@ -31,8 +31,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/login">Login</a></li>
-                <li>
+                <li ng-hide="ifLogin"><a href="#/login">Login</a></li>
+                <li ng-show="ifLogin"><a class="button smooth scroll">{{$root.userName}}</a></li>
+                <li ng-hide="ifLogin">
                     <a href="#/signup" class="button smooth scroll hidden-xs">Create an account</a>
                     <a href="#/signup" class="button visible-xs">Signup</a>
                 </li>
